@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}{{ patient }}{% endblock %}
+{% block content %}
+<h2>{{ patient }}</h2>
+<p>Phone: {{ patient.phone }}</p>
+<p>Email: {{ patient.email }}</p>
+<p>DOB: {{ patient.dob }}</p>
+<p>Address: {{ patient.address }}</p>
+
+<h3>Medical Records</h3>
+<ul>
+  {% for r in patient.records.all %}
+    <li>{{ r.created_at }} - {{ r.diagnosis }} - {{ r.notes|truncatechars:100 }}</li>
+  {% empty %}<li>No records</li>{% endfor %}
+</ul>
+{% endblock %}

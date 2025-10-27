@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Appointment Details{% endblock %}
+
+{% block content %}
+<h2>Appointment Details</h2>
+
+<p><strong>Patient:</strong> {{ appointment.patient }}</p>
+<p><strong>Doctor:</strong> {{ appointment.doctor }}</p>
+<p><strong>Date:</strong> {{ appointment.date }}</p>
+<p><strong>Time:</strong> {{ appointment.time }}</p>
+<p><strong>Reason:</strong> {{ appointment.reason }}</p>
+<p><strong>Status:</strong> 
+  {% if appointment.status == 'S' %}Scheduled
+  {% elif appointment.status == 'C' %}Completed
+  {% elif appointment.status == 'X' %}Cancelled
+  {% else %}Unknown{% endif %}
+</p>
+
+<a href="{% url 'appointment_list' %}">← Back to Appointments</a>
+{% endblock %}

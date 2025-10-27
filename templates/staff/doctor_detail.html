@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block title %}{{ doctor }}{% endblock %}
+{% block content %}
+<h2>{{ doctor }}</h2>
+<p>Specialization: {{ doctor.specialization }}</p>
+<p>Phone: {{ doctor.phone }}</p>
+<p>Email: {{ doctor.email }}</p>
+{% endblock %}
